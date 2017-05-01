@@ -260,15 +260,8 @@ end
 
 haproxy.start
 
-sleep 60
 
 loop do
-  $logger.info "resetting circuits"
-  proxies.each do |proxy|
-    $logger.info "reset nym for #{proxy.id} (port #{proxy.port})"
-    proxy.tor.newnym
-  end
-
   $logger.info "testing proxies"
   proxies.each do |proxy|
     $logger.info "testing proxy #{proxy.id} (port #{proxy.port})"
